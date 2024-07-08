@@ -1,19 +1,17 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import Navbar from './components/Navbar';
-// import Navbar from './components/NavbarCopy';
-import Home from './components/Home'
-import About from './components/About'
-import Contact from './components/Contact'
-import Footer from './components/Footer';
-import AdminLogin from './components/adminComponents/AdminLogin';
-import AdminRegistration from "./components/adminComponents/AdminRegistration"
-import CustomerLogin from './components/customerComponents/CustomerLogin';
-import CustomerRegistration from './components/customerComponents/CustomerRegistration';
-import { ABOUT_ROUTE, ADMIN_DASHBOARD, ADMIN_LOGIN_ROUTE, ADMIN_SIGNUP_ROUTE, BASE_ROUTE, CONTACT_ROUTE, CUSTOMER_DASHBOARD, CUSTOMER_LOGIN_ROUTE, CUSTOMER_SIGNUP_ROUTE, LOREM } from './constants/AppRoutes';
-import CustomerDashboard from './components/customerComponents/CustomerDashboard';
-import AdminDashboard from './components/adminComponents/AdminDashboard';
-import Lorem from './components/subComponents/Lorem';
+// import Navbar from './components/Navbar';
+// import Home from './components/Home'
+// import About from './components/About'
+// import Contact from './components/Contact'
+// import Footer from './components/Footer';
+// import AdminLogin from './components/adminComponents/AdminLogin';
+// import UserLogin from './components/customerComponents/UserLogin';
+// import UsererRegistration from './components/customerComponents/UsererRegistration';
+// import { ABOUT_ROUTE, ADMIN_DASHBOARD, ADMIN_LOGIN_ROUTE, BASE_ROUTE, CONTACT_ROUTE, CUSTOMER_DASHBOARD, CUSTOMER_LOGIN_ROUTE, CUSTOMER_SIGNUP_ROUTE, LOREM } from './constants/AppRoutes';
+// import CustomerDashboard from './components/customerComponents/CustomerDashboard';
+// import AdminDashboard from './components/adminComponents/AdminDashboard';
+// import Lorem from './components/subComponents/Lorem';
 
 function App() {
   return (
