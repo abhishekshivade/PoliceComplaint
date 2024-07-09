@@ -52,8 +52,8 @@ const Footer = () => {
                         </div>
                         <div className="col-md-6 col-lg-4 col-12 ft-3 text-center">
                             <h5>CDAC Police</h5>
-                            <img src={Logo} alt="RuPay logo" className="h-16 md:h-24 mx-auto" />
-                            <p>we're committed to making banking simple, secure, and rewarding for you. Join us today and experience banking the Rupay way!</p>
+                            <img src={Logo} alt="Police logo" className="h-16 md:h-24 mx-auto" />
+                            <p>We're committed to making your experience with the Police Online Complaint Portal simple, secure, and rewarding. Join us today and help create a safer community by reporting crimes and lodging complaints easily and efficiently.</p>
                         </div>
                     </div>
                 </div>

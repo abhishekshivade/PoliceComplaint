@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { customerLogin } from "../../services/customerServices";
-import { CUSTOMER_DASHBOARD } from "../../constants/AppRoutes";
-import { getToken, storeToken,storeUserType,storeCustomerId } from "../../services/authServices";
+import { userLogin } from "../../services/userServices";
+import { USER_LOGIN_ROUTE } from "../../constants/AppRoutes";
+import { USER_DASHBOARD } from "../../constants/AppRoutes";
+import { getToken, storeToken,storeUserType,storeUserId } from "../../services/authServices";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
-
 const UserLogin = () => {
   const [loginCredentials, setLoginCredentials] = useState({
-    CustomerID: "",
+    UserID: "",
     Password: "",
   });
   const [error, setError] = useState("");
@@ -19,8 +19,8 @@ const UserLogin = () => {
 
   useEffect(() => {
     if (getToken()) {
-      navigate(CUSTOMER_DASHBOARD);
-    }
+      navigate(USER_DASHBOARD);
+    }else navigate(USER_LOGIN_ROUTE)
   }, [navigate]);
 
   const handleChange = (e) => {
@@ -38,15 +38,15 @@ const UserLogin = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await customerLogin(loginCredentials);
+      const response = await userLogin(loginCredentials);
 
       if (response.status === 200) {
         storeToken(response.data.token);
-        storeUserType('customer')
-        storeCustomerId(loginCredentials.CustomerID)
-        storeUserType('customer')
-        storeCustomerId(loginCredentials.CustomerID)
-        navigate(CUSTOMER_DASHBOARD);
+        storeUserType('user')
+        storeUserId(loginCredentials.UserID)
+        storeUserType('user')
+        storeUserId(loginCredentials.UserID)
+        navigate(USER_DASHBOARD);
       }
     } catch (error) {
       setError("Invalid username or password");
@@ -61,12 +61,12 @@ const UserLogin = () => {
           <div className="relative flex border-b-black border-b-2 mx-5 my-7 py-1">
             <input
               type="text"
-              name="CustomerID"
-              value={loginCredentials.CustomerID}
+              name="UserID"
+              value={loginCredentials.UserID}
               onChange={handleChange}
               required
               className="w-full bg-transparent outline-none placeholder-black pl-8"
-              placeholder="Enter Customer ID"
+              placeholder="Enter User ID"
             />
             <div className="absolute left-0 pl-2 flex items-center">
               <FontAwesomeIcon icon={faUser} className="text-xl text-gray-500" />

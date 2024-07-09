@@ -8,7 +8,7 @@ import { faUser, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-i
 
 const AdminLogin = () => {
   const [loginCredentials, setLoginCredentials] = useState({
-    employeeId: "",
+    adminId: "",
     password: "",
   });
   const [error, setError] = useState("");
@@ -57,11 +57,11 @@ const AdminLogin = () => {
             <input
               type="text"
               name="employeeId"
-              value={loginCredentials.employeeId}
+              value={loginCredentials.adminId}
               onChange={handleChange}
               required
               className="w-full bg-transparent outline-none placeholder-black pl-8"
-              placeholder="Enter Employee ID"
+              placeholder="Enter USER ID"
             />
             <div className="absolute left-0 pl-2 flex items-center">
               <FontAwesomeIcon icon={faUser} className="text-xl text-gray-500" />
