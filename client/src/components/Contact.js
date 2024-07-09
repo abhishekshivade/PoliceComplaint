@@ -1,6 +1,5 @@
 import React from "react";
 import WhatsApp from "../assets/WhatsApp.svg";
-import siddhant from "../assets/siddhant.JPG";
 import abhishek from "../assets/Contact/Abhishek.jpg";
 import aakanksha from "../assets/Contact/Aakanksha.jpg"
 import rushikesh from "../assets/Contact/Rushikesh.jpg";
@@ -26,7 +25,7 @@ function Contact() {
               <div className="team-info">
                 <p className="font-semibold">070 Juhu</p>
                 <p>
-                Rushikesh is an integral part of our team. His coursework at CDAC has enhanced his expertise in various technologies. When he's not coding, Rushikesh enjoys solving complex puzzles and playing chess
+                Rushikesh is an integral part of our team. His coursework at CDAC has enhanced his expertise in various technologies. When he's not coding, Rushikesh enjoys solving complex problems
                 </p>
 
                 <div className=" flex items-center gap-2 w-fit mx-auto my-5">
@@ -247,7 +246,7 @@ function Contact() {
               <div className="team-info">
                 <p className="font-semibold">059 Juhu</p>
                 <p>
-                Abhishek is the driving force behind our project, currently pursuing advanced studies at CDAC. He excels at leading our team through complex challenges. In his spare time, Abhishek enjoys exploring technologies.
+                Pranoti is the driving force behind our project, currently pursuing advanced studies at CDAC. She excels at leading our team through complex challenges. In his spare time, Pranoti enjoys exploring technologies.
 
                 </p>
 
@@ -462,12 +461,12 @@ function Contact() {
 
           <div className="col-sm-6 col-md-4">
             <div className="team-item flex flex-col items-center">
-              <img src={pratik} className="team-img " alt="siddhant" />
+              <img src={pratik} className="team-img" alt="siddhant" />
               <h3>Pratik Dhayagude</h3>
               <div className="team-info">
                 <p className="font-semibold">062 Juhu</p>
                 <p>
-                Pratik specializes in end-to-end development. His training at CDAC has equipped him with the latest skills. In his free time, Siddhant is an avid reader of non-fiction books and enjoys exploring new technologies.
+                Pratik specializes in end-to-end development. His training at CDAC has equipped him with the latest skills. In his free time, He is an avid reader of non-fiction books and enjoys exploring new technologies.
                 </p>
 
                 <div className=" flex items-center gap-2 w-fit mx-auto my-5">

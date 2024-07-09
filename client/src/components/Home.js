@@ -1,7 +1,7 @@
 import React from 'react'
 import CarousalCard from './subComponents/CarousalCard'
 // import Cards from './subComponents/Cards'
-import Image1 from '../assets/Image1.jpg'
+import Image1 from '../assets/cards/Image1.jpg'
 import Footer1 from '../assets/footer1.jpg'
 import Footer2 from '../assets/footer2.webp'
 import Footer3 from '../assets/footer3.jpg'

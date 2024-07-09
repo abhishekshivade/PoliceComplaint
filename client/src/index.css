@@ -101,20 +101,19 @@ border: 1px solid rgba(255, 255, 255, 0.49);
   margin-top: -20px;
 }
 
-
 .team-img{
+  width:140px;
   max-width: 140px;
+  max-height: 140px;
   padding: 6px 6px;
   background-color: #dedede;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-
 }
 
 ul.team-icon{
   margin-top: 25px;
-
 }
 
 ul.team-icon li{

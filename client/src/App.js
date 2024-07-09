@@ -6,7 +6,7 @@ import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer';
 // import AdminLogin from './components/adminComponents/AdminLogin';
-// import UserLogin from './components/userComponents/UserLogin';
+import UserLogin from './components/userComponents/UserLogin';
 // import UserRegistration from './components/userComponents/UserRegistration';
 import { ABOUT_ROUTE, ADMIN_DASHBOARD, ADMIN_LOGIN_ROUTE, BASE_ROUTE, CONTACT_ROUTE, USER_DASHBOARD, USER_LOGIN_ROUTE, USER_SIGNUP_ROUTE, LOREM } from './constants/AppRoutes';
 // import UserDashboard from './components/userComponents/UserDashboard';
@@ -26,8 +26,8 @@ function App() {
       <Route path={ADMIN_DASHBOARD} element={<AdminDashboard/>}/> */}
       <Route path={LOREM} element={<Lorem/>}/>
 
-      {/* <Route path={USER_LOGIN_ROUTE} element={<UserLogin/>}/>
-      <Route path={USER_SIGNUP_ROUTE} element={<UserRegistration/>}/>
+       <Route path={USER_LOGIN_ROUTE} element={<UserLogin/>}/>
+      {/*<Route path={USER_SIGNUP_ROUTE} element={<UserRegistration/>}/>
       <Route path={USER_DASHBOARD} element={<UserDashboard/>}/> */}
     </Routes>
     <Footer/>
