@@ -12,15 +12,11 @@ const UserRegistration = () => {
   const [isNext, setIsNext] = useState(false);
 
   const [userData, setUserData] = useState({
-    firstName: "",
-    lastName: "",
-    mobileNumber: "",
-    emailId: "",
-    city: "",
-    aadhaarNumber: "",
-    panNumber: "",
-    password: "",
-    accountType: "",
+    name: "",
+    contact: "",
+    userName:"",
+    address: "",
+    password: ""
   });
 
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -29,16 +25,12 @@ const UserRegistration = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const [error, setError] = useState({
-    firstNameErr: "",
-    lastNameErr: "",
-    mobileNumberErr: "",
+    nameErr: "",
+    contactErr: "",
     emailIdErr: "",
-    cityErr: "",
-    formErr: "",
-    aadhaarNumberErr: "",
-    panNumberErr: "",
+    addressErr: "",
     passwordErr: "",
-    accountTypeErr: "",
+    formErr: "",
   });
 
   const navigate = useNavigate();
@@ -50,7 +42,7 @@ const UserRegistration = () => {
       [e.target.name]: e.target.value,
     }));
 
-  const handleFirstNameBlur = (e) => {
+  const handleNameBlur = (e) => {
     e.preventDefault();
 
     const firstNameErr = validate.validateName(userData.firstName);
@@ -61,18 +53,7 @@ const UserRegistration = () => {
     });
   };
 
-  const handleLastNameBlur = (e) => {
-    e.preventDefault();
-
-    const lastNameErr = validate.validateName(userData.lastName);
-
-    setError({
-      ...error,
-      lastNameErr,
-    });
-  };
-
-  const handleMobileNumber = (e) => {
+  const handleContact = (e) => {
     e.preventDefault();
 
     const mobileNumberErr = validate.validateMobileNumber(
@@ -96,7 +77,7 @@ const UserRegistration = () => {
     });
   };
 
-  const handleCity = (e) => {
+  const handleAddress = (e) => {
     e.preventDefault();
 
     const cityErr = validate.validateCityName(userData.city);
@@ -104,30 +85,6 @@ const UserRegistration = () => {
     setError({
       ...error,
       cityErr,
-    });
-  };
-
-  const handleAadhaarNumber = (e) => {
-    e.preventDefault();
-
-    const aadhaarNumberErr = validate.validateAadhaarNumber(
-      userData.aadhaarNumber
-    );
-
-    setError({
-      ...error,
-      aadhaarNumberErr,
-    });
-  };
-
-  const handlePanCard = (e) => {
-    e.preventDefault();
-
-    const panNumberErr = validate.validatePanCardNumber(userData.panNumber);
-
-    setError({
-      ...error,
-      panNumberErr,
     });
   };
 
@@ -161,21 +118,6 @@ const UserRegistration = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
 
-  const handleNext = (event) => {
-    event.preventDefault();
-    if (
-      !error.firstNameErr &&
-      !error.lastNameErr &&
-      !error.mobileNumberErr &&
-      !error.emailIdErr &&
-      !error.addressErr
-    ) {
-      setIsNext(true);
-    } else {
-      setError({ ...error, formErr: "Please enter correct data" });
-    }
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -197,18 +139,17 @@ const UserRegistration = () => {
           </h2>
         </div>
         <form className="space-y-4" onSubmit={handleSubmit}>
-          {!isNext ? (
-            <div>
+        <div>
               <div>
                 <div className="flex border-b-black border-b-2 mx-5 my-7 py-1">
                   <input
                     type="text"
                     className="w-11/12 bg-transparent outline-none placeholder-black"
-                    placeholder="Enter your First Name"
+                    placeholder="Enter your Name"
                     onChange={handleChange}
-                    name="firstName"
-                    value={userData.firstName}
-                    onBlur={handleFirstNameBlur}
+                    name="name"
+                    value={userData.name}
+                    onBlur={handleNameBlur}
                     required
                   />
                   <div className="w-2/12 flex items-center justify-center">
@@ -216,27 +157,7 @@ const UserRegistration = () => {
                   </div>
                 </div>
                 <p className="text-red-500 text-start text-sm w-60">
-                  {error.firstNameErr ? error.firstNameErr : <br />}
-                </p>
-              </div>
-              <div>
-                <div className="flex border-b-black border-b-2 mx-5 my-7 py-1">
-                  <input
-                    type="text"
-                    className="w-11/12 bg-transparent outline-none placeholder-black"
-                    placeholder="Enter your Last Name"
-                    onChange={handleChange}
-                    name="lastName"
-                    value={userData.lastName}
-                    onBlur={handleLastNameBlur}
-                    required
-                  />
-                  <div className="w-2/12 flex items-center justify-center">
-                    <i className="fa-solid fa-user text-x1"></i>
-                  </div>
-                </div>
-                <p className="text-red-500 text-start text-sm w-60">
-                  {error.lastNameErr ? error.lastNameErr : <br />}
+                  {error.firstNameErr ? error.nameErr : <br />}
                 </p>
               </div>
               <div>
@@ -247,8 +168,8 @@ const UserRegistration = () => {
                     placeholder="Enter your Mobile Number"
                     onChange={handleChange}
                     name="mobileNumber"
-                    value={userData.mobileNumber}
-                    onBlur={handleMobileNumber}
+                    value={userData.contact}
+                    onBlur={handleContact}
                     required
                   />
                   <div className="w-2/12 flex items-center justify-center">
@@ -256,7 +177,7 @@ const UserRegistration = () => {
                   </div>
                 </div>
                 <p className="text-red-500 text-start text-sm w-60">
-                  {error.mobileNumberErr ? error.mobileNumberErr : <br />}
+                  {error.contactErrErr ? error.contactErr : <br />}
                 </p>
               </div>
               <div>
@@ -284,11 +205,11 @@ const UserRegistration = () => {
                   <input
                     type="text"
                     className="w-11/12 bg-transparent outline-none placeholder-black"
-                    placeholder="Enter your City"
+                    placeholder="Enter your Address"
                     onChange={handleChange}
-                    name="city"
-                    value={userData.city}
-                    onBlur={handleCity}
+                    name="address"
+                    value={userData.address}
+                    onBlur={handleAddress}
                     required
                   />
                   <div className="w-2/12 flex items-center justify-center">
@@ -302,10 +223,102 @@ const UserRegistration = () => {
               {error.formErr && <p className="text-red-500">{error.formErr}</p>}
               <div className="text-center">
                 <button
-                  onClick={handleNext}
+                type="submit"
                   className="bg-black w-20 h-10 text-white rounded-full hover:bg-white hover:text-black hover:border hover:border-black"
                 >
-                  Next
+                  Submit
+                </button>
+              </div>
+            </div>
+          {/* {!isNext ? (
+            <div>
+              <div>
+                <div className="flex border-b-black border-b-2 mx-5 my-7 py-1">
+                  <input
+                    type="text"
+                    className="w-11/12 bg-transparent outline-none placeholder-black"
+                    placeholder="Enter your Name"
+                    onChange={handleChange}
+                    name="name"
+                    value={userData.name}
+                    onBlur={handleNameBlur}
+                    required
+                  />
+                  <div className="w-2/12 flex items-center justify-center">
+                    <i className="fa-solid fa-user text-x1"></i>
+                  </div>
+                </div>
+                <p className="text-red-500 text-start text-sm w-60">
+                  {error.firstNameErr ? error.nameErr : <br />}
+                </p>
+              </div>
+              <div>
+                <div className="flex border-b-black border-b-2 mx-5 my-7 py-1">
+                  <input
+                    type="tel"
+                    className="w-11/12 bg-transparent outline-none placeholder-black"
+                    placeholder="Enter your Mobile Number"
+                    onChange={handleChange}
+                    name="mobileNumber"
+                    value={userData.contact}
+                    onBlur={handleContact}
+                    required
+                  />
+                  <div className="w-2/12 flex items-center justify-center">
+                    <i className="fa-solid fa-mobile text-x1"></i>
+                  </div>
+                </div>
+                <p className="text-red-500 text-start text-sm w-60">
+                  {error.contactErrErr ? error.contactErr : <br />}
+                </p>
+              </div>
+              <div>
+                <div className="flex border-b-black border-b-2 mx-5 my-7 py-1">
+                  <input
+                    type="email"
+                    className="w-11/12 bg-transparent outline-none placeholder-black"
+                    placeholder="Enter your Email Address"
+                    onChange={handleChange}
+                    name="emailId"
+                    value={userData.emailId}
+                    onBlur={handleEmailId}
+                    required
+                  />
+                  <div className="w-2/12 flex items-center justify-center">
+                    <i className="fa-solid fa-envelope text-x1"></i>
+                  </div>
+                </div>
+                <p className="text-red-500 text-start text-sm w-60">
+                  {error.emailIdErr ? error.emailIdErr : <br />}
+                </p>
+              </div>
+              <div>
+                <div className="flex border-b-black border-b-2 mx-5 my-7 py-1">
+                  <input
+                    type="text"
+                    className="w-11/12 bg-transparent outline-none placeholder-black"
+                    placeholder="Enter your Address"
+                    onChange={handleChange}
+                    name="address"
+                    value={userData.address}
+                    onBlur={handleAddress}
+                    required
+                  />
+                  <div className="w-2/12 flex items-center justify-center">
+                    <i className="fa-solid fa-house text-x1"></i>
+                  </div>
+                </div>
+                <p className="text-red-500 text-start text-sm w-60">
+                  {error.addressErr ? error.addressErr : <br />}
+                </p>
+              </div>
+              {error.formErr && <p className="text-red-500">{error.formErr}</p>}
+              <div className="text-center">
+                <button
+                type="submit"
+                  className="bg-black w-20 h-10 text-white rounded-full hover:bg-white hover:text-black hover:border hover:border-black"
+                >
+                  Submit
                 </button>
               </div>
             </div>
@@ -443,7 +456,7 @@ const UserRegistration = () => {
                 </div>
               </div>
             </div>
-          )}
+          )} */}
         </form>
       </div>
     </div>
