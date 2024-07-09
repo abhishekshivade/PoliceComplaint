@@ -13,36 +13,35 @@ import {
   Typography,
 } from "@mui/material";
 import {
-  getAccountDetails,
-  getAllAccounts,
+  getComplaintDetails, getAllComplaints
 } from "../../services/userServices";
 
-const CustomerList = ({ customers }) => {
+const CustomerList = ({ users }) => {
   const [open, setOpen] = useState(false);
-  const [selectedCustomer, setSelectedCustomer] = useState(null);
-  const [accountDetails, setAccountDetails] = useState(null);
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [complaintDetails, setComplaintDetails] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const handleOpen = async (customer) => {
+  const handleOpen = async (user) => {
     setOpen(true);
-    setSelectedCustomer(customer);
+    setSelectedUser(user);
     setLoading(true);
   };
 
   useEffect(() => {
     const fetchData = async () => {
-      if (selectedCustomer) {
-        const account = await getAllAccounts(selectedCustomer);
-        setAccountDetails(await getAccountDetails(account[0].account_no));
+      if (selectedUser) {
+        const complaint = await getAllComplaints(selectedUser);
+        setComplaintDetails(await getComplaintDetails(complaint[0].complaint_id));
       }
     };
     fetchData()
-  }, [selectedCustomer]);
+  }, [selectedUser]);
 
   const handleClose = () => {
     setOpen(false);
-    setSelectedCustomer(null);
-    setAccountDetails(null);
+    setSelectedUser(null);
+    setComplaintDetails(null);
   };
 
   return (
@@ -51,30 +50,22 @@ const CustomerList = ({ customers }) => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>CustomerID</TableCell>
-              <TableCell>CustomerName</TableCell>
+              <TableCell>UserID</TableCell>
               <TableCell>MobileNo</TableCell>
               <TableCell>EmailID</TableCell>
-              <TableCell>Address</TableCell>
-              <TableCell>AadharNo</TableCell>
-              <TableCell>PanNo</TableCell>
               <TableCell>Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {customers.map((customer) => (
-              <TableRow key={customer.CustomerID}>
-                <TableCell>{customer.CustomerID}</TableCell>
-                <TableCell>{customer.CustomerName}</TableCell>
-                <TableCell>{customer.MobileNo}</TableCell>
-                <TableCell>{customer.EmailID}</TableCell>
-                <TableCell>{customer.Address}</TableCell>
-                <TableCell>{customer.AadharNo}</TableCell>
-                <TableCell>{customer.PanNo}</TableCell>
+            {users.map((user) => (
+              <TableRow key={user.UserID}>
+                <TableCell>{user.UserID}</TableCell>
+                <TableCell>{user.MobileNo}</TableCell>
+                <TableCell>{user.EmailID}</TableCell>
                 <TableCell>
                   <Button
                     variant="contained"
-                    onClick={() => handleOpen(customer.CustomerID)}
+                    onClick={() => handleOpen(user.UserID)}
                   >
                     View Account Details
                   </Button>
@@ -85,7 +76,7 @@ const CustomerList = ({ customers }) => {
         </Table>
       </TableContainer>
 
-      {selectedCustomer && (
+      {selectedUser && (
         <Modal
           open={open}
           onClose={handleClose}
@@ -104,18 +95,20 @@ const CustomerList = ({ customers }) => {
               p: 4,
             }}
           >
-            <Typography id="account-details-modal" variant="h6" component="h2">
-              Account Details
+            <Typography id="complaint-details-modal" variant="h6" component="h2">
+              Complaint Details
             </Typography>
-            {accountDetails && (
-              <Typography id="account-details-modal-description" sx={{ mt: 2 }}>
-                Account Number : {accountDetails[0].account_no}
+            {complaintDetails && (
+              <Typography id="complaint-details-modal-description" sx={{ mt: 2 }}>
+                Complaint ID : {complaintDetails[0].complaint_id}
                 <br />
-                Branch Code : {accountDetails[0].branch_code}
+                Category : {complaintDetails[0].category}
                 <br />
-                Balance : {accountDetails[0].balance}
+                Description : {complaintDetails[0].description}
                 <br />
-                Account Type : {accountDetails[0].account_type}
+                Branch : {complaintDetails[0].branch}
+                <br />
+                Status : {complaintDetails[0].status}
               </Typography>
             )}
           </Box>

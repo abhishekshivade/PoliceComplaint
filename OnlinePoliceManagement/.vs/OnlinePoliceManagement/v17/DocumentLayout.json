@@ -1,0 +1,194 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "G:\\dot net cdac\\OnlinePoliceManagement\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{696C5F42-20BF-4406-8CDC-E0541948FBCE}|OnlinePoliceManagement.csproj|g:\\dot net cdac\\onlinepolicemanagement\\models\\userregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{696C5F42-20BF-4406-8CDC-E0541948FBCE}|OnlinePoliceManagement.csproj|solutionrelative:models\\userregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{696C5F42-20BF-4406-8CDC-E0541948FBCE}|OnlinePoliceManagement.csproj|g:\\dot net cdac\\onlinepolicemanagement\\models\\complaint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{696C5F42-20BF-4406-8CDC-E0541948FBCE}|OnlinePoliceManagement.csproj|solutionrelative:models\\complaint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{696C5F42-20BF-4406-8CDC-E0541948FBCE}|OnlinePoliceManagement.csproj|g:\\dot net cdac\\onlinepolicemanagement\\controllers\\complaintscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{696C5F42-20BF-4406-8CDC-E0541948FBCE}|OnlinePoliceManagement.csproj|solutionrelative:controllers\\complaintscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{696C5F42-20BF-4406-8CDC-E0541948FBCE}|OnlinePoliceManagement.csproj|g:\\dot net cdac\\onlinepolicemanagement\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{696C5F42-20BF-4406-8CDC-E0541948FBCE}|OnlinePoliceManagement.csproj|solutionrelative:models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{696C5F42-20BF-4406-8CDC-E0541948FBCE}|OnlinePoliceManagement.csproj|g:\\dot net cdac\\onlinepolicemanagement\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{696C5F42-20BF-4406-8CDC-E0541948FBCE}|OnlinePoliceManagement.csproj|solutionrelative:startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{696C5F42-20BF-4406-8CDC-E0541948FBCE}|OnlinePoliceManagement.csproj|g:\\dot net cdac\\onlinepolicemanagement\\models\\dotnetminicontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{696C5F42-20BF-4406-8CDC-E0541948FBCE}|OnlinePoliceManagement.csproj|solutionrelative:models\\dotnetminicontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{696C5F42-20BF-4406-8CDC-E0541948FBCE}|OnlinePoliceManagement.csproj|g:\\dot net cdac\\onlinepolicemanagement\\controllers\\adminscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{696C5F42-20BF-4406-8CDC-E0541948FBCE}|OnlinePoliceManagement.csproj|solutionrelative:controllers\\adminscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{696C5F42-20BF-4406-8CDC-E0541948FBCE}|OnlinePoliceManagement.csproj|g:\\dot net cdac\\onlinepolicemanagement\\controllers\\userregistrationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{696C5F42-20BF-4406-8CDC-E0541948FBCE}|OnlinePoliceManagement.csproj|solutionrelative:controllers\\userregistrationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{696C5F42-20BF-4406-8CDC-E0541948FBCE}|OnlinePoliceManagement.csproj|g:\\dot net cdac\\onlinepolicemanagement\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{696C5F42-20BF-4406-8CDC-E0541948FBCE}|OnlinePoliceManagement.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{696C5F42-20BF-4406-8CDC-E0541948FBCE}|OnlinePoliceManagement.csproj|g:\\dot net cdac\\onlinepolicemanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{696C5F42-20BF-4406-8CDC-E0541948FBCE}|OnlinePoliceManagement.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserRegistration.cs",
+              "DocumentMoniker": "G:\\dot net cdac\\OnlinePoliceManagement\\Models\\UserRegistration.cs",
+              "RelativeDocumentMoniker": "Models\\UserRegistration.cs",
+              "ToolTip": "G:\\dot net cdac\\OnlinePoliceManagement\\Models\\UserRegistration.cs",
+              "RelativeToolTip": "Models\\UserRegistration.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T17:18:08.747Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ComplaintsController.cs",
+              "DocumentMoniker": "G:\\dot net cdac\\OnlinePoliceManagement\\Controllers\\ComplaintsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ComplaintsController.cs",
+              "ToolTip": "G:\\dot net cdac\\OnlinePoliceManagement\\Controllers\\ComplaintsController.cs",
+              "RelativeToolTip": "Controllers\\ComplaintsController.cs",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAiwFQAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T17:55:48.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Complaint.cs",
+              "DocumentMoniker": "G:\\dot net cdac\\OnlinePoliceManagement\\Models\\Complaint.cs",
+              "RelativeDocumentMoniker": "Models\\Complaint.cs",
+              "ToolTip": "G:\\dot net cdac\\OnlinePoliceManagement\\Models\\Complaint.cs",
+              "RelativeToolTip": "Models\\Complaint.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAwAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T17:18:01.081Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "G:\\dot net cdac\\OnlinePoliceManagement\\Models\\Admin.cs",
+              "RelativeDocumentMoniker": "Models\\Admin.cs",
+              "ToolTip": "G:\\dot net cdac\\OnlinePoliceManagement\\Models\\Admin.cs",
+              "RelativeToolTip": "Models\\Admin.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T17:17:57.822Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "G:\\dot net cdac\\OnlinePoliceManagement\\Startup.cs",
+              "RelativeDocumentMoniker": "Startup.cs",
+              "ToolTip": "G:\\dot net cdac\\OnlinePoliceManagement\\Startup.cs",
+              "RelativeToolTip": "Startup.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACoAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T19:01:57.72Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DotNetMiniContext.cs",
+              "DocumentMoniker": "G:\\dot net cdac\\OnlinePoliceManagement\\Models\\DotNetMiniContext.cs",
+              "RelativeDocumentMoniker": "Models\\DotNetMiniContext.cs",
+              "ToolTip": "G:\\dot net cdac\\OnlinePoliceManagement\\Models\\DotNetMiniContext.cs",
+              "RelativeToolTip": "Models\\DotNetMiniContext.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAB0AAACMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T17:49:01.121Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AdminsController.cs",
+              "DocumentMoniker": "G:\\dot net cdac\\OnlinePoliceManagement\\Controllers\\AdminsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminsController.cs",
+              "ToolTip": "G:\\dot net cdac\\OnlinePoliceManagement\\Controllers\\AdminsController.cs",
+              "RelativeToolTip": "Controllers\\AdminsController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T17:53:46.161Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserRegistrationsController.cs",
+              "DocumentMoniker": "G:\\dot net cdac\\OnlinePoliceManagement\\Controllers\\UserRegistrationsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserRegistrationsController.cs",
+              "ToolTip": "G:\\dot net cdac\\OnlinePoliceManagement\\Controllers\\UserRegistrationsController.cs",
+              "RelativeToolTip": "Controllers\\UserRegistrationsController.cs",
+              "ViewState": "AQIAAEcAAAAAAAAAAAAiwGgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T17:54:45.189Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "G:\\dot net cdac\\OnlinePoliceManagement\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "G:\\dot net cdac\\OnlinePoliceManagement\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-09T17:56:11.615Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "G:\\dot net cdac\\OnlinePoliceManagement\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "G:\\dot net cdac\\OnlinePoliceManagement\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAB9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-09T17:50:31.21Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

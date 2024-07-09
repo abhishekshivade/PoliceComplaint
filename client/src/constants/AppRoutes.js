@@ -9,5 +9,6 @@ export const ADMIN_COMPLAINT_DETAILS="/adminComplaintDetails"
 export const USER_LOGIN_ROUTE="/userLogIn"
 export const USER_SIGNUP_ROUTE="/userSignUp"
 export const USER_DASHBOARD="/userDashboard"
+export const ADD_COMPLAINT="/addComplaint"
 
 export const LOREM='/lorem'
