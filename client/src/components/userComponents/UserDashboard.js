@@ -5,7 +5,7 @@ import {
   getPersonalDetails,
   getAllComplaints,
   getComplaintDetails,
-} from "../../services/customerServices";
+} from "../../services/userServices";
 import { useNavigate } from "react-router-dom";
 import { BASE_ROUTE } from "../../constants/AppRoutes";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
@@ -49,7 +49,7 @@ const UserDashboard = () => {
           const compalintData = await getComplaintDetails(compalintId);
           setCompalintDetails(compalintData);
         } catch (error) {
-          // console.error("Error fetching account details:", error);
+          // console.error("Error fetching complaint details:", error);
         }
       }
     };
@@ -86,7 +86,7 @@ const UserDashboard = () => {
               onChange={handleComplaintChange}
               required
             >
-              {accountList.map((compalintId) => {
+              {complaintList.map((compalintId) => {
                 return (
                   <MenuItem value={compalintId.complaint_id}>
                     {compalintId.complaint_id}
@@ -108,7 +108,7 @@ const UserDashboard = () => {
                   {personalDetails[0].UserID}
                 </div>
                 <div>
-                  <strong>First Name : </strong>
+                  <strong>Name : </strong>
                   {personalDetails[0].UserName}
                 </div>
                 <div>
@@ -156,7 +156,7 @@ const UserDashboard = () => {
                 </div>
                 <div>
                   <strong>Status : </strong>
-                  {accountDetails[0].status}
+                  {compalintDetails[0].status}
                 </div>
               </>
             ) : (

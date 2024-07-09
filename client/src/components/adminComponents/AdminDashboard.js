@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import CustomerList from "./ComplaintList";
+import ComplaintList from "./ComplaintList";
 import { getToken } from "../../services/authServices";
 import { useNavigate } from "react-router-dom";
 import { BASE_ROUTE } from "../../constants/AppRoutes";
-import {getAccountDetails, getCustomers} from '../../services/userServices'
+import {getComplaintDetails, getAllComplaints} from '../../services/userServices'
 
 const AdminDashboard = () => {
-  const [customers, setCustomers] = useState([]);
+  const [complaints, setComplaints] = useState([]);
 
 const navigate=useNavigate()
 
@@ -17,7 +17,7 @@ useEffect(()=>{
 useEffect(() => {
   const fetchData = async () => {
     try {
-      setCustomers(await getCustomers())
+      setComplaints(await getAllComplaints())
     } catch (error) {
       // console.error("Error fetching data:", error);
     }
@@ -30,8 +30,8 @@ useEffect(() => {
     <div className="w-full min-h-screen p-4 bg-gray-100 text-center">
       <h1 className="text-3xl font-bold mb-6">Admin Dashboard</h1>
       <div>
-        <h2 className="text-2xl my-5 font-semibold">Customer List Table</h2>        
-        <CustomerList customers={customers}></CustomerList>
+        <h2 className="text-2xl my-5 font-semibold">Complaint List Table</h2>        
+        <ComplaintList complaints={complaints}></ComplaintList>
       </div>
     </div>
   );
