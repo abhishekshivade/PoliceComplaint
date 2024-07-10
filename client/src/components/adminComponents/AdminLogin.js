@@ -8,7 +8,7 @@ import { faUser, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-i
 
 const AdminLogin = () => {
   const [loginCredentials, setLoginCredentials] = useState({
-    adminId: "",
+    email: "",
     password: "",
   });
   const [error, setError] = useState("");
@@ -55,13 +55,13 @@ const AdminLogin = () => {
         <form className="my-2" onSubmit={handleSubmit}>
           <div className="relative flex border-b-black border-b-2 mx-5 my-7 py-1">
             <input
-              type="text"
-              name="employeeId"
-              value={loginCredentials.adminId}
+              type="email"
+              name="email"
+              value={loginCredentials.email}
               onChange={handleChange}
               required
               className="w-full bg-transparent outline-none placeholder-black pl-8"
-              placeholder="Enter USER ID"
+              placeholder="Enter Email"
             />
             <div className="absolute left-0 pl-2 flex items-center">
               <FontAwesomeIcon icon={faUser} className="text-xl text-gray-500" />

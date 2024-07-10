@@ -1,6 +1,5 @@
 import React from 'react'
 import CarousalCard from './subComponents/CarousalCard'
-// import Cards from './subComponents/Cards'
 import Image1 from '../assets/cards/Image1.jpg'
 import Footer1 from '../assets/footer1.jpg'
 import Footer2 from '../assets/footer2.webp'
@@ -11,7 +10,6 @@ const Home = () => {
   return (
     <div>
       <CarousalCard/>
-      {/* <Cards/> */}
       <img src={Image1} alt='image1'/>
       <img src={Footer1} alt='image2'/>
     </div>

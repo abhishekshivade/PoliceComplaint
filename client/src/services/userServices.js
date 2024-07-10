@@ -3,9 +3,9 @@ import {
   USER_LOGIN,
   USER_PR_DETAILS,
   USER_CP_DETAILS,
-  GET_ALL_USERS,
   REGISTER_USER,
   GET_ALL_COMPLAINTS,
+  ADD_COMPLAINT,
 } from "../constants/ApiRputes";
 import {} from "./adminServices";
 import { getToken } from "./authServices";
@@ -16,8 +16,7 @@ export const registerUser = (userData) =>
 export const userLogin = (loginCredentials) =>
   axios.post(USER_LOGIN, loginCredentials);
 
-export const getComplaintDetails = (complaintID) =>
-  axios.get(USER_CP_DETAILS, complaintID);
+export const getUserDetails= userId=> axios.get(USER_PR_DETAILS,userId);
 
 export const getPersonalDetails = async (userID) => {
   const config = {
@@ -40,34 +39,16 @@ export const getPersonalDetails = async (userID) => {
   }
 };
 
-export const getAllComplaints = async (userID) => {
-  const config = {
-    headers: {
-      Auth: getToken(),
-      "Content-Type": "application/json",
-    },
-  };
+export const addComplaint = (complaintData) =>
+  axios.post(ADD_COMPLAINT, complaintData);
 
-  const data = {
-    userID: userID,
-  };
+export const getComplaintDetails = (complaintID) =>
+  axios.get(USER_CP_DETAILS, complaintID);
 
-  try {
-    const response = await axios.post(GET_ALL_COMPLAINTS, data, config);
-    return response.data;
-  } catch (error) {
-    // console.error("Error fetching account list:", error);
-    throw error;
-  }
-};
+export const getAllComplaints=userId=> axios.get(GET_ALL_COMPLAINTS,userId);
 
-export const getUsers = async() => {
-  const config = {
-    headers: {
-      Auth: getToken(),
-      "Content-Type": "application/json",
-    },
-  };
-  const response =await axios.post(GET_ALL_USERS,{},config);
-  return response.data
-};
+export const editComplaint = (complaintID) =>
+  axios.put(USER_CP_DETAILS, complaintID);
+
+export const deleteComplaint = (complaintID) =>
+  axios.delete(USER_CP_DETAILS, complaintID);
