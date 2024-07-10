@@ -16,7 +16,7 @@ import {
   getComplaintDetails, getAllComplaints
 } from "../../services/userServices";
 
-const CustomerList = ({ users }) => {
+const ComplaintList = ({ users }) => {
   const [open, setOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const [complaintDetails, setComplaintDetails] = useState(null);
@@ -67,7 +67,7 @@ const CustomerList = ({ users }) => {
                     variant="contained"
                     onClick={() => handleOpen(user.UserID)}
                   >
-                    View Account Details
+                    View Complaint Details
                   </Button>
                 </TableCell>
               </TableRow>
@@ -80,8 +80,8 @@ const CustomerList = ({ users }) => {
         <Modal
           open={open}
           onClose={handleClose}
-          aria-labelledby="account-details-modal"
-          aria-describedby="account-details-modal-description"
+          aria-labelledby="complaint-details-modal"
+          aria-describedby="complaint-details-modal-description"
         >
           <Box
             sx={{
@@ -118,4 +118,4 @@ const CustomerList = ({ users }) => {
   );
 };
 
-export default CustomerList;
+export default ComplaintList;

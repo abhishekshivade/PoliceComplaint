@@ -8,9 +8,14 @@ import {
   CardHeader,
   MenuItem,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { addComplaint, registerUser } from "../../services/userServices";
+import { USER_DASHBOARD, USER_LOGIN_ROUTE } from "../../constants/AppRoutes";
+import validateUser from "../library/Validator";
 
 const AddComplaint = () => {
-  const [formData, setFormData] = useState({
+
+  const [complaintData, setComplaintData] = useState({
     name: "",
     email: "",
     category: "",
@@ -20,36 +25,108 @@ const AddComplaint = () => {
     branch: "",
   });
 
+  const [error, setError] = useState({
+    nameErr: "",
+    emailErr: "",
+    categoryErr: "",
+    descriptionErr: "",
+    cityErr: "",
+    branchErr: "",
+    formErr: "",
+  });
+
+  const navigate = useNavigate();
+  const validate = validateUser();
+
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
+    setComplaintData((prevData) => ({
+      ...prevData,
+      [e.target.name]: e.target.value,
+    }))
   };
+
+  const handleName = (e) => {
+    e.preventDefault();
+
+    const nameErr = validate.validateName(
+      complaintData.name
+    );
+
+    setError({
+      ...error,
+      nameErr,
+    });
+  };
+
+  const handleEmailId = (e) => {
+    e.preventDefault();
+
+    const emailErr = validate.validateEmail(complaintData.email);
+
+    setError({
+      ...error,
+      emailErr,
+    });
+  };
+
+  const handleCategory = (e) => {
+    e.preventDefault();
+
+    const categoryErr = validate.validateCategory(complaintData.category);
+
+    setError({
+      ...error,
+      categoryErr,
+    });
+  };
+
+  const handleDescription = (e) => {
+    e.preventDefault();
+
+    const descriptionErr = validate.validateDescription(
+      complaintData.description
+    );
+
+    setError({
+      ...error,
+      descriptionErr,
+    });
+  };
+
+  const handleCity = (e) => {
+    e.preventDefault();
+
+    const cityErr = validate.validateCityName(
+      complaintData.city
+    );
+
+    setError({
+      ...error,
+      cityErr,
+    });
+  };
+
+  const handleBranch = (e) => {
+    e.preventDefault();
+
+    const branchErr = validate.validateBranch(complaintData.branch);
+
+    setError({
+      ...error,
+      branchErr,
+    });
+  };
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     try {
-      const response = await fetch("your-api-endpoint", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
+      const response = await addComplaint(complaintData);
+      if (response.status === 200) {
+        navigate(USER_DASHBOARD);
       }
-
-      const data = await response.json();
-      console.log("Success:", data);
-      // Optionally, redirect or show success message
     } catch (error) {
-      console.error("Error:", error);
-      // Handle errors, show error message, etc.
+      setError({ ...error, formErr: "Please enter correct data" });
     }
   };
 
@@ -68,8 +145,9 @@ const AddComplaint = () => {
               variant="outlined"
               fullWidth
               name="name"
-              value={formData.name}
+              value={complaintData.name}
               onChange={handleChange}
+              onBlur={handleName}
               required
             />
             <TextField
@@ -78,8 +156,9 @@ const AddComplaint = () => {
               fullWidth
               type="email"
               name="email"
-              value={formData.email}
+              value={complaintData.email}
               onChange={handleChange}
+              onBlur={handleEmailId}
               required
             />
             <TextField
@@ -88,8 +167,9 @@ const AddComplaint = () => {
               variant="outlined"
               fullWidth
               name="category"
-              value={formData.category}
+              value={complaintData.category}
               onChange={handleChange}
+              onBlur={handleCategory}
               required
             >
               <MenuItem value="Theft">Theft</MenuItem>
@@ -103,7 +183,7 @@ const AddComplaint = () => {
               fullWidth
               type="date"
               name="date"
-              value={formData.date}
+              value={complaintData.date}
               onChange={handleChange}
               InputLabelProps={{ shrink: true }}
               required
@@ -115,8 +195,9 @@ const AddComplaint = () => {
               multiline
               rows={4}
               name="description"
-              value={formData.description}
+              value={complaintData.description}
               onChange={handleChange}
+              onBlur={handleDescription}
               required
             />
             <TextField
@@ -124,8 +205,9 @@ const AddComplaint = () => {
               variant="outlined"
               fullWidth
               name="city"
-              value={formData.city}
+              value={complaintData.city}
               onChange={handleChange}
+              onBlur={handleCity}
               required
             />
             <TextField
@@ -133,8 +215,9 @@ const AddComplaint = () => {
               variant="outlined"
               fullWidth
               name="branch"
-              value={formData.branch}
+              value={complaintData.branch}
               onChange={handleChange}
+              onBlur={handleBranch}
               required
             />
             <Button type="submit" variant="contained" color="primary">

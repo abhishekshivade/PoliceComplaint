@@ -39,7 +39,7 @@ const validateUser = () => {
     const trimmedValue = value.trim();
 
     if (trimmedValue.length < 2 || trimmedValue.length > 50) {
-      return "City Name must be between 2 and 50 characters long";
+      return "Invalid City Name";
     }
 
     if (!/^[a-zA-Z\s]+$/.test(trimmedValue)) {
@@ -53,7 +53,7 @@ const validateUser = () => {
     const trimmedValue = value.trim();
 
     if (!/^[6-9]\d{9}$/.test(trimmedValue)) {
-      return "Indian Mobile Number must be a 10-digit number starting with 6, 7, 8, or 9";
+      return "Invalid Mobile/Contact number";
     }
 
     return null;
@@ -79,22 +79,31 @@ const validatePanCardNumber = (value) => {
   return null;
 };
 
+const validateBranch = (value) => {
+  const trimmedValue = value.trim();
 
-const validateAccountType = (value) => {
-  const trimmedValue = value.trim().toLowerCase();
-
-  const validAccountTypes = ['Savings', 'Current', 'Loan', 'Fixed Deposit'];
-
-  if (!validAccountTypes.includes(trimmedValue)) {
-      return "Account type must be one of the following: Savings, Current, Loan, Fixed Deposit";
+  if (trimmedValue.length < 2 || trimmedValue.length > 50) {
+    return "Invalid Branch Name";
   }
 
-  return null;
+  if (!/^[a-zA-Z\s]+$/.test(trimmedValue)) {
+    return "Branch Name must contain only letters and spaces";
+  }
+
+  return null; // No error
 };
 
+const validateDescription = (value) => {
+  const trimmedValue = value.trim();
 
+  if (trimmedValue.length < 2 || trimmedValue.length > 100) {
+    return "Description must be long";
+  }
 
-  const validateBranch=value=>!value ? 'Please select a branch' : null;
+  return null; // No error
+};
+
+  const validateCategory=value=>!value ? 'Please select a category' : null;
 
   const validateId = (value) => {
     const trimmedValue = value.trim();
@@ -112,11 +121,12 @@ const validateAccountType = (value) => {
     validatePassword,
     validateCityName,
     validateMobileNumber,
+    validateDescription,
     validateBranch,
+    validateCategory,
     validateId,
     validateAadhaarNumber,
-    validatePanCardNumber,
-    validateAccountType
+    validatePanCardNumber
   };
 };
 
