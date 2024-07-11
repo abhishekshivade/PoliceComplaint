@@ -93,7 +93,7 @@ const UserRegistration = () => {
     event.preventDefault();
     try {
       const response = await registerUser(userData);
-      if (response.status === 200) {
+      if (response.status === 201) {
         navigate(USER_LOGIN_ROUTE);
       }
     } catch (error) {

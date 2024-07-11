@@ -9,20 +9,20 @@ import {
   MenuItem,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { addComplaint, registerUser } from "../../services/userServices";
-import { USER_DASHBOARD, USER_LOGIN_ROUTE } from "../../constants/AppRoutes";
+import { editComplaint } from "../../services/userServices";
+import { ADMIN_DASHBOARD, } from "../../constants/AppRoutes";
 import validateUser from "../library/Validator";
 
-const AddComplaint = () => {
-
+const EditComplaint = ({complaintDetails}) => {
+console.log(complaintDetails);
   const [complaintData, setComplaintData] = useState({
-    name: "",
-    email: "",
-    category: "",
-    date: "",
-    description: "",
-    city: "",
-    branch: "",
+    name: complaintDetails.name,
+    email: complaintDetails.email,
+    category: complaintDetails.category,
+    date: complaintDetails.date,
+    description: complaintDetails.description,
+    city: complaintDetails.city,
+    branch: complaintDetails.branch,
   });
 
   const [error, setError] = useState({
@@ -121,9 +121,9 @@ const AddComplaint = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await addComplaint(complaintData);
+      const response = await editComplaint(complaintDetails.complaintId,complaintData);
       if (response.status === 201) {
-        navigate(USER_DASHBOARD);
+        navigate(ADMIN_DASHBOARD);
       }
     } catch (error) {
       setError({ ...error, formErr: "Please enter correct data" });
@@ -230,4 +230,4 @@ const AddComplaint = () => {
   );
 };
 
-export default AddComplaint;
+export default EditComplaint;

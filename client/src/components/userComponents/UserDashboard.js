@@ -5,9 +5,10 @@ import {
   getPersonalDetails,
   getAllComplaints,
   getComplaintDetails,
+  getUserDetails,
 } from "../../services/userServices";
 import { useNavigate } from "react-router-dom";
-import { BASE_ROUTE } from "../../constants/AppRoutes";
+import { ADD_COMPLAINT, BASE_ROUTE } from "../../constants/AppRoutes";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
 const UserDashboard = () => {
@@ -21,17 +22,19 @@ const UserDashboard = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const personalData = await getPersonalDetails(userId);
-        setPersonalDetails(personalData);
+        const personalData = await getUserDetails(userId);
+        setPersonalDetails(personalData.data);
 
         const complaints = await getAllComplaints(userId);
-        setComplintList(complaints);
+        setComplintList(complaints.data);
 
-        if (complaints.length > 0) {
-          const firstComplaintId = complaints[0].complaint_id;
+        if (complaints.data.length > 0) {
+          const firstComplaintId = complaints.data[0].complaintId;
+          console.log("cID : ",firstComplaintId)
           setCompalintId(firstComplaintId);
 
           const compalintData = await getComplaintDetails(firstComplaintId);
+          console.log("ComplaintData : ",compalintData)
           setCompalintDetails(compalintData);
         }
       } catch (error) {
@@ -72,6 +75,8 @@ const UserDashboard = () => {
       <div className="flex items-center pt-5 px-5">
         <h1 className="text-2xl font-bold w-10/12">User Dashboard</h1>
 
+        <button onClick={()=>navigate(ADD_COMPLAINT)} className="mr-16 w-36 py-3 bg-blue-500 text-white rounded hover:bg-blue-600">Add Complaint</button>
+
         <div className="w-1/12">
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">
@@ -86,10 +91,10 @@ const UserDashboard = () => {
               onChange={handleComplaintChange}
               required
             >
-              {complaintList.map((compalintId) => {
+              {complaintList.map(() => {
                 return (
-                  <MenuItem value={compalintId.complaint_id}>
-                    {compalintId.complaint_id}
+                  <MenuItem key={compalintId} value={compalintId}>
+                    {compalintId}
                   </MenuItem>
                 );
               })}
@@ -101,29 +106,18 @@ const UserDashboard = () => {
         <div className="w-full lg:w-5/12 p-5 border rounded-lg shadow-md mb-5 lg:mb-0">
           <h2 className="text-xl font-semibold mb-4">Personal Details</h2>
           <div className="text-left space-y-2">
-            {personalDetails.length > 0 ? (
+            {personalDetails ? (
               <>
                 <div>
                   <strong>User ID : </strong>{" "}
-                  {personalDetails[0].UserID}
-                </div>
-                <div>
-                  <strong>Name : </strong>
-                  {personalDetails[0].UserName}
+                  {personalDetails.userId}
                 </div>
                 <div>
                   <strong>Mobile Number : </strong>
-                  {personalDetails[0].MobileNo}
+                  {personalDetails.contact}
                 </div>
                 <div>
-                  <strong>Email ID : </strong> {personalDetails[0].EmailID}
-                </div>
-                <div>
-                  <strong>Address : </strong> {personalDetails[0].Address}
-                </div>
-                <div>
-                  <strong>Aadhaar Number : </strong>{" "}
-                  {personalDetails[0].AadharNo}
+                  <strong>Email ID : </strong> {personalDetails.email}
                 </div>
               </>
             ) : (
@@ -134,29 +128,33 @@ const UserDashboard = () => {
         <div className="w-full lg:w-5/12 p-5 border rounded-lg shadow-md">
           <h2 className="text-xl font-semibold mb-4">Compalint Details</h2>
           <div className="text-left space-y-2">
-            {compalintDetails.length > 0 ? (
+            {compalintDetails.data ? (
               <>
                 <div>
                   <strong>Compalint ID : </strong>{" "}
-                  {compalintDetails[0].complaint_id}
+                  {compalintDetails.data.complaintId}
                 </div>
                 <div>
-                  <strong>Branch Code : </strong>
-                  {compalintDetails[0].branch_code}
-                </div>
-                <div>
-                  <strong>Description : </strong> {compalintDetails[0].description}
+                  <strong>Name : </strong>
+                  {compalintDetails.data.name}
                 </div>
                 <div>
                   <strong>Category : </strong>
-                  {compalintDetails[0].category}
+                  {compalintDetails.data.category}
                 </div>
                 <div>
-                  <strong>Date : </strong> {compalintDetails[0].date}
+                  <strong>Branch : </strong>
+                  {compalintDetails.data.branch}
                 </div>
                 <div>
-                  <strong>Status : </strong>
-                  {compalintDetails[0].status}
+                  <strong>City : </strong>
+                  {compalintDetails.data.city}
+                </div>
+                <div>
+                  <strong>Description : </strong> {compalintDetails.data.description}
+                </div>
+                <div>
+                  <strong>Date : </strong> {compalintDetails.data.date}
                 </div>
               </>
             ) : (

@@ -13,36 +13,47 @@ import {
   Typography,
 } from "@mui/material";
 import {
-  getComplaintDetails, getAllComplaints
+  getComplaintDetails, getAllComplaints,
+  deleteComplaint,
+  editComplaint
 } from "../../services/userServices";
+import { useNavigate } from "react-router-dom";
+import { EDIT_COMPLAINT } from "../../constants/AppRoutes";
 
-const ComplaintList = ({ users }) => {
+const ComplaintList = ({ complaints }) => {
   const [open, setOpen] = useState(false);
-  const [selectedUser, setSelectedUser] = useState(null);
+  const [selectedComplaint, setSelectedComplaint] = useState(null);
   const [complaintDetails, setComplaintDetails] = useState(null);
   const [loading, setLoading] = useState(false);
+  const navigate=useNavigate();
 
   const handleOpen = async (user) => {
     setOpen(true);
-    setSelectedUser(user);
+    setSelectedComplaint(user);
     setLoading(true);
   };
 
   useEffect(() => {
     const fetchData = async () => {
-      if (selectedUser) {
-        const complaint = await getAllComplaints(selectedUser);
-        setComplaintDetails(await getComplaintDetails(complaint[0].complaint_id));
+      if (selectedComplaint) {
+        const complaint = await getAllComplaints(selectedComplaint);
+        setComplaintDetails(await getComplaintDetails(selectedComplaint));
       }
     };
     fetchData()
-  }, [selectedUser]);
+  }, [selectedComplaint]);
 
   const handleClose = () => {
     setOpen(false);
-    setSelectedUser(null);
+    setSelectedComplaint(null);
     setComplaintDetails(null);
   };
+
+  const handleDelete=async()=>{
+    let deleted=await deleteComplaint(complaintDetails.data.complaintId)
+
+    if(deleted.status === 200) handleClose()
+  }
 
   return (
     <>
@@ -50,22 +61,35 @@ const ComplaintList = ({ users }) => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>UserID</TableCell>
-              <TableCell>MobileNo</TableCell>
+              <TableCell>Compalint ID</TableCell>
+              <TableCell>Name</TableCell>
               <TableCell>EmailID</TableCell>
+              <TableCell>Category</TableCell>
+              <TableCell>Date</TableCell>
+              <TableCell>Description</TableCell>
+              <TableCell>City</TableCell>
+              <TableCell>Branch</TableCell>
               <TableCell>Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {users.map((user) => (
-              <TableRow key={user.UserID}>
-                <TableCell>{user.UserID}</TableCell>
-                <TableCell>{user.MobileNo}</TableCell>
-                <TableCell>{user.EmailID}</TableCell>
+            {complaints.map((complaint) => (
+              <TableRow key={complaint.complaintId}>
+                {
+                  // console.log(selectedComplaint)
+                }
+                <TableCell>{complaint.complaintId}</TableCell>
+                <TableCell>{complaint.name}</TableCell>
+                <TableCell>{complaint.email}</TableCell>
+                <TableCell>{complaint.category}</TableCell>
+                <TableCell>{complaint.date}</TableCell>
+                <TableCell>{complaint.description}</TableCell>
+                <TableCell>{complaint.city}</TableCell>
+                <TableCell>{complaint.branch}</TableCell>
                 <TableCell>
                   <Button
                     variant="contained"
-                    onClick={() => handleOpen(user.UserID)}
+                    onClick={() => handleOpen(complaint.complaintId)}
                   >
                     View Complaint Details
                   </Button>
@@ -76,7 +100,7 @@ const ComplaintList = ({ users }) => {
         </Table>
       </TableContainer>
 
-      {selectedUser && (
+      {selectedComplaint && (
         <Modal
           open={open}
           onClose={handleClose}
@@ -98,18 +122,29 @@ const ComplaintList = ({ users }) => {
             <Typography id="complaint-details-modal" variant="h6" component="h2">
               Complaint Details
             </Typography>
-            {complaintDetails && (
+            {complaintDetails && (<div>
               <Typography id="complaint-details-modal-description" sx={{ mt: 2 }}>
-                Complaint ID : {complaintDetails[0].complaint_id}
+                Complaint ID : {complaintDetails.data.complaintId}
                 <br />
-                Category : {complaintDetails[0].category}
+                Name : {complaintDetails.data.name}
                 <br />
-                Description : {complaintDetails[0].description}
+                Email ID : {complaintDetails.data.email}
                 <br />
-                Branch : {complaintDetails[0].branch}
+                Category : {complaintDetails.data.category}
                 <br />
-                Status : {complaintDetails[0].status}
+                Date : {complaintDetails.data.date}
+                <br />
+                Description : {complaintDetails.data.description}
+                <br/>
+                City : {complaintDetails.data.city}
+                <br />
+                Branch : {complaintDetails.data.branch}
               </Typography>
+              <div className="flex justify-around text-white pt-3">
+                <button className="bg-yellow-500 hover:bg-yellow-600 rounded px-3 py-2" onClick={()=>navigate(EDIT_COMPLAINT)}>Edit</button>
+                <button className="bg-red-500 hover:bg-red-600 rounded px-3 py-2" onClick={()=>handleDelete()}>Delete</button>
+              </div>
+              </div>
             )}
           </Box>
         </Modal>

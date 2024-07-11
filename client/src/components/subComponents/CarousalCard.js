@@ -41,7 +41,7 @@ const CarousalCard = () => {
 function Item(props) {
   return (
     <Paper>
-      <div class="w-screen h-96 bg-cover" style={{ backgroundImage: `url(${props.item.bgImg})` }}>
+      <div class="w-screen h-[550px] bg-cover bg-no-repeat bg-center" style={{ backgroundImage: `url(${props.item.bgImg})` }}>
         <p>{props.item.description}</p>
       </div>
     </Paper>

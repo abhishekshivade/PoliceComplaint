@@ -9,8 +9,8 @@ import { faUser, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-i
 
 const UserLogin = () => {
   const [loginCredentials, setLoginCredentials] = useState({
-    UserID: "",
-    Password: "",
+    email: "",
+    password: "",
   });
   const [error, setError] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -43,9 +43,7 @@ const UserLogin = () => {
       if (response.status === 200) {
         storeToken(response.data.token);
         storeUserType('user')
-        storeUserId(loginCredentials.UserID)
-        storeUserType('user')
-        storeUserId(loginCredentials.UserID)
+        storeUserId(response.data.userID)
         navigate(USER_DASHBOARD);
       }
     } catch (error) {
@@ -61,12 +59,12 @@ const UserLogin = () => {
           <div className="relative flex border-b-black border-b-2 mx-5 my-7 py-1">
             <input
               type="text"
-              name="UserID"
-              value={loginCredentials.UserID}
+              name="email"
+              value={loginCredentials.email}
               onChange={handleChange}
               required
               className="w-full bg-transparent outline-none placeholder-black pl-8"
-              placeholder="Enter User ID"
+              placeholder="Enter Email ID"
             />
             <div className="absolute left-0 pl-2 flex items-center">
               <FontAwesomeIcon icon={faUser} className="text-xl text-gray-500" />
@@ -75,8 +73,8 @@ const UserLogin = () => {
           <div className="relative flex border-b-black border-b-2 mx-5 my-7 py-1">
             <input
               type={passwordVisible ? "text" : "password"}
-              name="Password"
-              value={loginCredentials.Password}
+              name="password"
+              value={loginCredentials.password}
               onChange={handleChange}
               required
               className="w-full bg-transparent outline-none placeholder-black pl-8"

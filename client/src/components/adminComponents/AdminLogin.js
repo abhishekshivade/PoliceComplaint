@@ -8,6 +8,7 @@ import { faUser, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-i
 
 const AdminLogin = () => {
   const [loginCredentials, setLoginCredentials] = useState({
+    adminId:0,
     email: "",
     password: "",
   });

@@ -17,7 +17,8 @@ useEffect(()=>{
 useEffect(() => {
   const fetchData = async () => {
     try {
-      setComplaints(await getAllComplaints())
+      let complaintsData=await getAllComplaints();
+      setComplaints(complaintsData.data)
     } catch (error) {
       // console.error("Error fetching data:", error);
     }
@@ -28,6 +29,8 @@ useEffect(() => {
 
   return (
     <div className="w-full min-h-screen p-4 bg-gray-100 text-center">
+      {/* {
+    console.log("com : ",complaints)} */}
       <h1 className="text-3xl font-bold mb-6">Admin Dashboard</h1>
       <div>
         <h2 className="text-2xl my-5 font-semibold">Complaint List Table</h2>        

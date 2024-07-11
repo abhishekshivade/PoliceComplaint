@@ -16,7 +16,7 @@ export const registerUser = (userData) =>
 export const userLogin = (loginCredentials) =>
   axios.post(USER_LOGIN, loginCredentials);
 
-export const getUserDetails= userId=> axios.get(USER_PR_DETAILS,userId);
+export const getUserDetails= userId=> axios.get(`${USER_PR_DETAILS}/${userId}`);
 
 export const getPersonalDetails = async (userID) => {
   const config = {
@@ -43,12 +43,12 @@ export const addComplaint = (complaintData) =>
   axios.post(ADD_COMPLAINT, complaintData);
 
 export const getComplaintDetails = (complaintID) =>
-  axios.get(USER_CP_DETAILS, complaintID);
+  axios.get(`${USER_CP_DETAILS}/${complaintID}`);
 
 export const getAllComplaints=userId=> axios.get(GET_ALL_COMPLAINTS,userId);
 
-export const editComplaint = (complaintID) =>
-  axios.put(USER_CP_DETAILS, complaintID);
+export const editComplaint = (complaintID,complaintData) =>
+  axios.put(`${USER_CP_DETAILS}/${complaintID}`,complaintData);
 
 export const deleteComplaint = (complaintID) =>
-  axios.delete(USER_CP_DETAILS, complaintID);
+  axios.delete(`${USER_CP_DETAILS}/${complaintID}`);

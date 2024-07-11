@@ -10,8 +10,8 @@ const Home = () => {
   return (
     <div>
       <CarousalCard/>
-      <img src={Image1} alt='image1'/>
-      <img src={Footer1} alt='image2'/>
+      {/* <img src={Image1} className='w-full h-[500px]' alt='image1'/> */}
+      <img src={Footer1} className='w-full h-96' alt='image2'/>
     </div>
   )
 }
